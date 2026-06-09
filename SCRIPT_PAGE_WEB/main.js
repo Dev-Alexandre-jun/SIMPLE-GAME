@@ -98,7 +98,7 @@ function skyShip(){
    AUR_G.addColorStop(0, colors[3]);
    AUR_G.addColorStop(0.5, colors[4]);
    AUR_G.addColorStop(1, colors[5]);
-   ctx.shadowColor = "aqua";
+   ctx.shadowColor = colors[6];
    ctx.shadowBlur = 80;
    ctx.fillStyle = AUR_G;
    ctx.fill();

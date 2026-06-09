@@ -7,5 +7,5 @@ GAME DEMO
 
 # GAME SIMPLE
 
-***IN DEVELOPING***
+***IN DEVELOPING***. . . .
 

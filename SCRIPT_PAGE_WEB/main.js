@@ -6,6 +6,17 @@ const btn_right = document.querySelector("#right");
 const btn_bottom = document.querySelector("#bottom");
 canvas.width =  window.innerWidth;
 canvas.height = 400;
+let ship = [];
+let alien_x = 0;
+let alien_y = 0;
+let alien_r = 140;
+let dx_alien = 0;
+let dy_alien = 0;
+let speed = 1;
+let speed_aur = 0;
+let person_x = 0;
+let person_y = 260;
+let person_r = 140;
 btn_top.onclick = () => {
   dy_alien = -speed;
   dx_alien = 0;
@@ -22,17 +33,6 @@ btn_bottom.onclick = () => {
   dy_alien = speed;
   dx_alien = 0;
 };
-let ship = [];
-let alien_x = 0;
-let alien_y = 0;
-let alien_r = 140;
-let dx_alien = 0;
-let dy_alien = 0;
-let speed = 1;
-let speed_aur = 0;
-let person_x = 0;
-let person_y = 260;
-let person_r = 140;
 let colors = [
   "#000000",
   "#0000FF",

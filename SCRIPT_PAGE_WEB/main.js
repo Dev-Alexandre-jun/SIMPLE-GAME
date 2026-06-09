@@ -69,6 +69,7 @@ function mou(y, c, a, l) {
   ctx.fill();
 };
 function skyShip(){
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   const SKY = ctx.createLinearGradient(0, 0, 0, canvas.height);
   SKY.addColorStop(0, colors[0]);
   SKY.addColorStop(0.5, colors[1]);

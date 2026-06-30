@@ -138,3 +138,72 @@ person.onload = function(){
   skyShip();
 };
 skyShip();
+
+
+
+
+const API = "https://jsonplaceholder.typicode.com/posts";
+const box = document.querySelector("#posts-container");
+const dbody = document.body;
+async function getAllPosts(){
+  try {
+    const res = await fetch(API);
+    if(!res.ok){
+      throw new Error("[ERROR HTTP]");
+    };
+    const data = await res.json();
+    data.forEach((selectPost) => {
+    const postTitle = document.createElement("h1");
+    const postBody = document.createElement("p");
+    const postlink = document.createElement("a");
+    postTitle.innerHTML = selectPost.title;
+    postBody.innerHTML = selectPost.body;
+    postlink.innerHTML = "info";
+    postlink.href = `?id=${selectPost.id}`;
+    box.appendChild(postTitle);
+    box.appendChild(postBody);
+    box.appendChild(postlink);
+    dbody.appendChild(box);
+    });
+  } catch {
+    console.log("[ERROR]");
+  };
+};
+const paramsUrl = new URLSearchParams(window.location.search);
+const idSelect= paramsUrl.get("id");
+async function AllPost(idSelect){
+    try {
+   const [post, comment] = await Promise.all([
+        fetch(`${API}/${idSelect}`),
+        fetch(`${API}/${idSelect}/comments`)
+      ]);
+   const resPost = await post.json();
+   const resComment = await comment.json();
+   const commentBox = document.createElement("div");
+   const resPostTitle = document.createElement("h1");
+   const resPostBody = document.createElement("p");
+      resPostTitle.innerHTML = resPost.title;
+      resPostBody.innerHTML = resPost.body;
+      commentBox.appendChild(resPostTitle);
+      commentBox.appendChild(resPostBody);
+     resComment.forEach((selectComment) => {
+  const commentName = document.createElement("h1");
+  const commentEmail = document.createElement("h6");
+  const commentBody = document.createElement("p");
+    commentName.innerHTML = selectComment.name;
+    commentEmail.innerHTML = selectComment.email;
+    commentBody.innerHTML = selectComment.body;
+    commentBox.appendChild(commentName);
+    commentBox.appendChild(commentEmail);
+    commentBox.appendChild(commentBody);
+    dbody.appendChild(commentBox);
+     });
+    } catch {
+      console.log("[ERROR]");
+    };
+};
+if (idSelect) {
+  AllPost(idSelect);
+} else {
+  getAllPosts();
+}

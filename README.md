@@ -21,7 +21,7 @@ Aqui documento minha prática com HTML, CSS e JavaScript enquanto desenvolvo pro
 
 ---
 
-git clone 
+git clone https://github.com/Dev-Alexandre-jun/SIMPLE-GAME.git
 
 ---
 ## Tecnologias Utilizadas  

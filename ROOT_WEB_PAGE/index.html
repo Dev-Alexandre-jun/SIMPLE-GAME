@@ -1,23 +1,27 @@
-<!-- Not Responsive -->
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="author" content="Dev Alexandre - Student programming">
-  <meta name="description" content="GAME DEMO - Not responsive">
+  <meta name="description" content="GAME DEMO - Responsive">
+  <meta name="theme-color" content="#000000">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="stylesheet" href="../Assets/styles.css" type="text/css">
   <title>ECMAScript-API-CANVAS</title>
 </head>
 <body>
-<canvas id="screen"></canvas>
+<div class="stage">
+  <canvas id="screen" aria-label="Cenário do jogo" role="img"></canvas>
+</div>
 <div class="container">
-  <button id="top">&uarr;</button>
-  <button id="left">&larr;</button>
-  <button id="right">&rarr;</button>
-  <button id="bottom">&darr;</button>
+  <button id="top" type="button" aria-label="Cima">&uarr;</button>
+  <button id="left" type="button" aria-label="Esquerda">&larr;</button>
+  <button id="right" type="button" aria-label="Direita">&rarr;</button>
+  <button id="bottom" type="button" aria-label="Baixo">&darr;</button>
 </div>
 <script src="../SCRIPT_PAGE_WEB/main.js" type="text/javascript" defer></script>
 </body>

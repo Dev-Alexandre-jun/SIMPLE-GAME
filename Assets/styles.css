@@ -1,45 +1,100 @@
 :root {
   --color-blk: #000000;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --btn: clamp(54px, 15vw, 72px);
 }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
-  height: 100vh;
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  overscroll-behavior: none;
 }
+
+.stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+}
+
 canvas {
   position: absolute;
-  top:0;
-  left:0;
-  right:0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   display: block;
-  border: 1px solid;
+  touch-action: none;
 }
+
 .container {
-  position: absolute;
-  left: 150px;
-  bottom: 70px;
-  margin-top: 50px;
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, var(--btn));
+  grid-template-rows: repeat(3, var(--btn));
+  gap: 6px;
+  justify-content: center;
+  padding: 10px calc(10px + var(--safe-right)) calc(10px + var(--safe-bottom)) calc(10px + var(--safe-left));
+  background: #111;
 }
+
 button {
-  position: relative;
-  display: block;
-  height: 50px;
-  width: 50px;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  width: 100%;
+  height: 100%;
   border: none;
-  border-radius: 7px;
-  outline: solid;
-  outline-color: var(--color-blk);
-  outline-width: 0.8px;
+  border-radius: 8px;
+  outline: solid 0.8px var(--color-blk);
+  background: #e8e8e8;
   color: var(--color-blk);
-  font-size: 28px;
+  font-size: clamp(24px, 7vw, 32px);
   font-weight: bold;
 }
-#left {
-  right: 50px;
+
+button:active { background: #bdbdbd; }
+
+button:focus-visible { outline: 3px solid #28a745; outline-offset: 2px; }
+
+#top    { grid-column: 2; grid-row: 1; }
+
+#left   { grid-column: 1; grid-row: 2; }
+
+#right  { grid-column: 3; grid-row: 2; }
+
+#bottom { grid-column: 2; grid-row: 3; }
+
+@media (min-width: 720px) {
+  :root { --btn: 64px; }
 }
-#right {
-  left: 50px;
-  bottom: 50px;
-}
-#bottom {
-  bottom: 50px;
+
+@media (max-height: 500px) and (orientation: landscape) {
+  body { flex-direction: row; }
+  .container {
+    --btn: clamp(44px, 18vh, 60px);
+    align-content: center;
+    padding: 8px calc(8px + var(--safe-right)) 8px 8px;
+  }
+  .stage { padding-left: var(--safe-left); }
 }

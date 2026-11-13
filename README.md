@@ -4,6 +4,14 @@
 
 -- 
 
+**ME CHAMO ALEXANDRE, ESTOU EM PROCESSO DE APRENDIZAGEM, A RESPONSIVIDADE E UMA PARTE DO CÓDIGO EXPOSTO FOI CRIADO COM I.A**
+
+--
+
+**SISTEMA UTILIZADO PARA CODAR (Spck Editor and Visual Studio Code) - ( Sys-MOBILE )**
+
+--
+
  **Obrigado por ter chegado até aqui** Descrição do Projeto e author
 
 
